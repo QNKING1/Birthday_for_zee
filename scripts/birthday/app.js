@@ -415,7 +415,7 @@
 
         // Neural Network Visualization (Replace the current initNeuralVisualization and animateNeural functions)
 
-        // ========== NEURAL NETWORK VISUALIZATION (CodePen: https://codepen.io/towc/pen/wGjXGY) ==========
+        // --- NEURAL NETWORK VISUALIZATION (CodePen: https://codepen.io/towc/pen/wGjXGY) ---
 
         function initNeuralVisualization() {
             const c = document.getElementById('neuralCanvas');
@@ -927,7 +927,7 @@
             });
         }
 
-        // ========== MISSION BRIEFING FUNCTIONS ==========
+        // --- MISSION BRIEFING FUNCTIONS ---
 
         // Add to your elements object
         elements.missionSection = document.getElementById('mission-section');
@@ -1286,7 +1286,7 @@
             }
         }
 
-        // ========== MISSION OBJECTIVES LOCK SYSTEM ==========
+        // --- MISSION OBJECTIVES LOCK SYSTEM ---
 
         const missionState = {
             objective1: { unlocked: false, completed: false, world: "cake_world" },
@@ -1302,18 +1302,15 @@
             objectives.forEach((obj, index) => {
                 const objectiveNumber = index + 1;
                 const state = missionState[`objective${objectiveNumber}`];
-                const baseText = obj.getAttribute('data-base-text') || obj.textContent.replace(/\s[🔒🔓]$/, '').trim();
-                obj.setAttribute('data-base-text', baseText);
-                obj.textContent = `${baseText} ${state.unlocked ? '🔓' : '🔒'}`;
 
                 // Add click handler
-                obj.onclick = () => {
+                obj.addEventListener('click', () => {
                     if (state.unlocked && !state.completed) {
                         enterWorld(state.world);
                     } else if (!state.unlocked) {
                         showLockedMessage(objectiveNumber);
                     }
-                };
+                });
 
                 // Update visual state
                 updateObjectiveVisual(obj, state, objectiveNumber);
@@ -1344,11 +1341,6 @@
         }
         // Enter world function
         function enterWorld(world) {
-            if (world === 'celebration_world') {
-                window.location.href = 'celebration_world.html';
-                return;
-            }
-
             const message = document.createElement('div');
             message.className = 'confirmation-box';
             message.style.background = 'rgba(0, 20, 40, 0.95)';
