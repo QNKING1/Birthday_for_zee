@@ -633,10 +633,15 @@
             left: 0;
             width: 100vw;
             height: 100vh;
+            height: 100dvh;
             display: none;
             background: radial-gradient(circle at center, #0a0f0a 0%, #050805 100%);
             z-index: 300;
             overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
+            pointer-events: auto;
             padding: 20px;
         }
 
@@ -1584,20 +1589,3 @@
             color: #3eff3e;
         }
     
-
-/* Accessibility / reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-.cyber-btn:focus-visible,
-.scan:focus-visible,
-.mission-btn:focus-visible {
-  outline: 2px solid #3fefef;
-  outline-offset: 2px;
-}
