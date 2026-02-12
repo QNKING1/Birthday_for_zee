@@ -790,73 +790,6 @@
             // Empty function - animation is handled by the neural network's own anim() function
         }
 
-        function completeExperience() {
-            // Flash effect
-            elements.flashOverlay.classList.add('flash');
-            setTimeout(() => {
-                elements.flashOverlay.classList.remove('flash');
-
-                // Add final message
-                const finalMessage = document.createElement('div');
-                finalMessage.style.position = 'fixed';
-                finalMessage.style.top = '50%';
-                finalMessage.style.left = '50%';
-                finalMessage.style.transform = 'translate(-50%, -50%)';
-                finalMessage.style.color = '#3eff3e';
-                finalMessage.style.fontSize = '2em';
-                finalMessage.style.textAlign = 'center';
-                finalMessage.style.zIndex = '300';
-                finalMessage.style.textShadow = '0 0 20px #3eff3e';
-                finalMessage.style.background = 'rgba(0, 0, 0, 0.8)';
-                finalMessage.style.padding = '40px 60px';
-                finalMessage.style.borderRadius = '10px';
-                finalMessage.style.border = '2px solid #3fefef';
-                finalMessage.style.boxShadow = '0 0 50px rgba(63, 239, 239, 0.3)';
-                finalMessage.innerHTML = `
-            <div style="margin-bottom: 30px; font-size: 1.5em;">ACCESS COMPLETE</div>
-            <div style="margin-bottom: 20px; font-size: 3em; font-weight: bold; color: #3fefef;">ZAARGULL</div>
-            <div style="font-size: 0.8em; color: #3fefef; letter-spacing: 2px;">SECURITY CLEARANCE: MAXIMUM</div>
-            <div style="margin-top: 20px; font-size: 0.6em; color: #00ffaa;">System Ready - All Protocols Verified</div>
-        `;
-                document.body.appendChild(finalMessage);
-
-                // Add restart button
-                const restartButton = document.createElement('button');
-                restartButton.innerHTML = 'RESTART EXPERIENCE';
-                restartButton.style.position = 'fixed';
-                restartButton.style.bottom = '50px';
-                restartButton.style.left = '50%';
-                restartButton.style.transform = 'translateX(-50%)';
-                restartButton.style.padding = '15px 30px';
-                restartButton.style.background = 'transparent';
-                restartButton.style.color = '#3fefef';
-                restartButton.style.border = '2px solid #3fefef';
-                restartButton.style.borderRadius = '5px';
-                restartButton.style.fontSize = '1em';
-                restartButton.style.cursor = 'pointer';
-                restartButton.style.zIndex = '300';
-                restartButton.style.textTransform = 'uppercase';
-                restartButton.style.letterSpacing = '2px';
-                restartButton.style.transition = 'all 0.3s';
-                restartButton.onmouseover = () => {
-                    restartButton.style.background = '#3fefef';
-                    restartButton.style.color = '#000';
-                    restartButton.style.boxShadow = '0 0 20px #3fefef';
-                };
-                restartButton.onmouseout = () => {
-                    restartButton.style.background = 'transparent';
-                    restartButton.style.color = '#3fefef';
-                    restartButton.style.boxShadow = 'none';
-                };
-                restartButton.onclick = () => {
-                    location.reload();
-                };
-                document.body.appendChild(restartButton);
-
-                console.log("Experience complete! Access granted to Zaargull.");
-            }, 150);
-        }
-
         // Handle window resize
         window.addEventListener('resize', () => {
             // Resize hex matrix
@@ -875,32 +808,6 @@
 
         // Add to your elements object
         elements.personnelSection = document.getElementById('personnel-section');
-
-        // Update completeExperience function
-        function completeExperience() {
-            // Flash effect
-            elements.flashOverlay.classList.add('flash');
-            setTimeout(() => {
-                elements.flashOverlay.classList.remove('flash');
-
-                // Hide neural section
-                elements.neuralSection.style.opacity = '0';
-                setTimeout(() => {
-                    elements.neuralSection.style.display = 'none';
-
-                    // Show personnel section
-                    elements.personnelSection.style.display = 'block';
-                    elements.personnelSection.style.overflowY = 'auto';
-                    elements.personnelSection.scrollTop = 0;
-                    setTimeout(() => {
-                        elements.personnelSection.style.opacity = '1';
-
-                        // Initialize personnel data
-                        initializePersonnelData();
-                    }, 100);
-                }, 500);
-            }, 150);
-        }
 
         // Initialize personnel data
         function initializePersonnelData() {
@@ -1019,25 +926,6 @@
                 }, 3500);
             });
         }
-
-        // Function to transition from personnel to mission briefing
-        function transitionToMissionBriefing() {
-            // Hide personnel section
-            elements.personnelSection.style.opacity = '0';
-            setTimeout(() => {
-                elements.personnelSection.style.display = 'none';
-
-                // Show mission briefing
-                elements.missionSection.style.display = 'block';
-                setTimeout(() => {
-                    elements.missionSection.style.opacity = '1';
-
-                    // Start mission countdown timer
-                    startCountdown();
-                }, 100);
-            }, 500);
-        }
-
 
         // ========== MISSION BRIEFING FUNCTIONS ==========
 
