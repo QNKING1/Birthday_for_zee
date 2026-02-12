@@ -415,7 +415,7 @@
 
         // Neural Network Visualization (Replace the current initNeuralVisualization and animateNeural functions)
 
-        // ========== NEURAL NETWORK VISUALIZATION (CodePen: https://codepen.io/towc/pen/wGjXGY) ==========
+        // --- NEURAL NETWORK VISUALIZATION (CodePen: https://codepen.io/towc/pen/wGjXGY) ---
 
         function initNeuralVisualization() {
             const c = document.getElementById('neuralCanvas');
@@ -927,7 +927,7 @@
             });
         }
 
-        // ========== MISSION BRIEFING FUNCTIONS ==========
+        // --- MISSION BRIEFING FUNCTIONS ---
 
         // Add to your elements object
         elements.missionSection = document.getElementById('mission-section');
@@ -1286,7 +1286,7 @@
             }
         }
 
-        // ========== MISSION OBJECTIVES LOCK SYSTEM ==========
+        // --- MISSION OBJECTIVES LOCK SYSTEM ---
 
         const missionState = {
             objective1: { unlocked: false, completed: false, world: "cake_world" },
