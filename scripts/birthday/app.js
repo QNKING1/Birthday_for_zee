@@ -1341,6 +1341,16 @@
         }
         // Enter world function
         function enterWorld(world) {
+            // Map world names to HTML files
+            const worldToFile = {
+                'celebration_world': 'celebration_world.html',
+                'cake_world': 'cake_world.html',
+                'message_world': 'message_world.html',
+                'gift_world': 'gift_world.html'
+            };
+
+            const htmlFile = worldToFile[world] || `${world}.html`;
+
             const message = document.createElement('div');
             message.className = 'confirmation-box';
             message.style.background = 'rgba(0, 20, 40, 0.95)';
@@ -1363,15 +1373,9 @@
                 if (progressFill) {
                     progressFill.style.width = '100%';
 
-                    // Complete world entry
+                    // Navigate to the world HTML file
                     setTimeout(() => {
-                        message.innerHTML = `
-                            <h2>✅ WORLD LOADED</h2>
-                            <p>Exploring: <span style="color: #00ffaa;">${world.replace(/_/g, ' ').toUpperCase()}</span></p>
-                            <p style="margin-top: 20px; color: #8f9f8f; font-size: 0.9em;">This is where the interactive world content will appear!</p>
-                            <button class="mission-btn" onclick="completeObjective('${world}')">COMPLETE OBJECTIVE</button>
-                            <button class="mission-btn" style="background: transparent; margin-top: 10px;" onclick="closeConfirmation()">RETURN</button>
-                        `;
+                        window.location.href = htmlFile;
                     }, 2000);
                 }
             }, 100);
